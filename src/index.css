@@ -12,9 +12,6 @@
 }
 
 body {
-	/* background-color: aqua; */
+	background-color: #ffffff;
 	margin: 0;
-	background-image: url('./assets/backgroundImage.png');
-	background-attachment: fixed;
-	background-size: cover;
 }
