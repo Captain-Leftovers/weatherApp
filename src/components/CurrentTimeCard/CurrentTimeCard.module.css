@@ -1,0 +1,32 @@
+.cardContainer {
+    height:200px;
+    width: 500px;
+    background-color:#141414;
+    border-radius: 20px;
+    display:flex;
+    flex-direction: column;
+    padding: 5px 20px 15px;
+    justify-content: space-between;
+}
+
+.currentTime{
+    align-self: center;
+}
+
+.secondRow{
+    display:flex;
+    justify-content: space-between;
+}
+
+.thirdRow{
+    display:flex;
+    justify-content: space-between;
+}
+
+.separator {
+    color: #000000;
+}
+
+.rf{
+
+}
