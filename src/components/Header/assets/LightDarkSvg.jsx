@@ -1,10 +1,11 @@
 export default function LightDarkSvg() {
 	return (
 		<svg
-			width="50px"
-			height="40px"
-			viewBox="0 0 60 54"
-			fill="none"
+			
+			width="32"
+			height="30"
+			viewBox="0 5 60 54"
+			fill=""
 			xmlns="http://www.w3.org/2000/svg"
 		>
 			<g clip-path="url(#clip0_16_154)">

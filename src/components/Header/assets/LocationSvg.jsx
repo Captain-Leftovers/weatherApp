@@ -2,13 +2,13 @@ export default function LocationSvg() {
 	return (
 		<svg
 			fill="white"
-			height="40px"
-			width="30px"
+			height="25"
+			width="20"
 			version="1.1"
 			id="XMLID_238_"
 			xmlns="http://www.w3.org/2000/svg"
 			xmlns:xlink="http://www.w3.org/1999/xlink"
-			viewBox="0 0 24 24"
+			viewBox="2 0 20 25"
 			xml:space="preserve"
 		>
 			<g id="location">

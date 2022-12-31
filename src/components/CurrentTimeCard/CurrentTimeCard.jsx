@@ -7,7 +7,7 @@ return (
     <div className={style.cardContainer}>
         <div className={style.currentTime}>(10:30)</div>
         <div className={style.secondRow}>
-            <div className={style.deg}>(28&deg;)</div>
+            <div className={style.deg}>(28&deg;C)</div>
             <div className={style.detail}>(Sunny)</div>
             <div className={style.icon}>(icon)</div>
         </div>
