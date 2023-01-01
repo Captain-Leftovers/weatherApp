@@ -7,9 +7,9 @@ export default function LocationSvg() {
 			version="1.1"
 			id="XMLID_238_"
 			xmlns="http://www.w3.org/2000/svg"
-			xmlns:xlink="http://www.w3.org/1999/xlink"
+			xmlnsXlink="http://www.w3.org/1999/xlink"
 			viewBox="2 0 20 25"
-			xml:space="preserve"
+			xmlSpace="preserve"
 		>
 			<g id="location">
 				<g>

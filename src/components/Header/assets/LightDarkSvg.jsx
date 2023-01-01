@@ -1,14 +1,13 @@
 export default function LightDarkSvg() {
 	return (
 		<svg
-			
 			width="32"
 			height="30"
 			viewBox="0 5 60 54"
 			fill=""
 			xmlns="http://www.w3.org/2000/svg"
 		>
-			<g clip-path="url(#clip0_16_154)">
+			<g clipPath="url(#clip0_16_154)">
 				<g filter="url(#filter0_f_16_154)">
 					<rect
 						x="48.25"
@@ -69,10 +68,10 @@ export default function LightDarkSvg() {
 					width="27"
 					height="26"
 					filterUnits="userSpaceOnUse"
-					color-interpolation-filters="sRGB"
+					colorInterpolationFilters="sRGB"
 				>
 					<feFlood
-						flood-opacity="0"
+						floodOpacity="0"
 						result="BackgroundImageFix"
 					/>
 					<feBlend
@@ -93,10 +92,10 @@ export default function LightDarkSvg() {
 					width="27"
 					height="26"
 					filterUnits="userSpaceOnUse"
-					color-interpolation-filters="sRGB"
+					colorInterpolationFilters="sRGB"
 				>
 					<feFlood
-						flood-opacity="0"
+						floodOpacity="0"
 						result="BackgroundImageFix"
 					/>
 					<feBlend
@@ -117,10 +116,10 @@ export default function LightDarkSvg() {
 					width="27"
 					height="26"
 					filterUnits="userSpaceOnUse"
-					color-interpolation-filters="sRGB"
+					colorInterpolationFilters="sRGB"
 				>
 					<feFlood
-						flood-opacity="0"
+						floodOpacity="0"
 						result="BackgroundImageFix"
 					/>
 					<feBlend
@@ -141,10 +140,10 @@ export default function LightDarkSvg() {
 					width="27"
 					height="26"
 					filterUnits="userSpaceOnUse"
-					color-interpolation-filters="sRGB"
+					colorInterpolationFilters="sRGB"
 				>
 					<feFlood
-						flood-opacity="0"
+						floodOpacity="0"
 						result="BackgroundImageFix"
 					/>
 					<feBlend
@@ -165,10 +164,10 @@ export default function LightDarkSvg() {
 					width="27"
 					height="26"
 					filterUnits="userSpaceOnUse"
-					color-interpolation-filters="sRGB"
+					colorInterpolationFilters="sRGB"
 				>
 					<feFlood
-						flood-opacity="0"
+						floodOpacity="0"
 						result="BackgroundImageFix"
 					/>
 					<feBlend
@@ -189,10 +188,10 @@ export default function LightDarkSvg() {
 					width="38.209"
 					height="43.95"
 					filterUnits="userSpaceOnUse"
-					color-interpolation-filters="sRGB"
+					colorInterpolationFilters="sRGB"
 				>
 					<feFlood
-						flood-opacity="0"
+						floodOpacity="0"
 						result="BackgroundImageFix"
 					/>
 					<feBlend
