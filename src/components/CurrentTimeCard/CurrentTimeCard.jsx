@@ -14,9 +14,9 @@ return (
         <div className={style.thirdRow}>
             <div className={style.rf}>(RF: 30&deg;)</div>
             <div className={style.separator}>|</div>
-            <div className={style.humidity}>(Humidity: 40)</div>
+            <div className={style.humidity}>L:15&deg;C</div>
             <div className={style.separator}>|</div>
-            <div className={style.uv}>(UV: 35)</div>
+            <div className={style.humidity}>H:27&deg;C</div>
             <div className={style.separator}>|</div>
             <div className={style.windSpeed}>(Wind Speed: 50)</div>
         </div>

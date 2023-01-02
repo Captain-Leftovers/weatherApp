@@ -3,14 +3,24 @@ import CurrentTimeCard from './components/CurrentTimeCard/CurrentTimeCard.jsx'
 import Header from './components/Header/Header.jsx'
 import DailyCard from './components/DailyCard/DailyCard.jsx'
 import style from './App.module.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+
+import { currentWeatherCall } from '../services/weatherService'
 
 function App() {
-	const [city, setCity] = useState({
-		name: 'Sydney',
-		lat: -33.86785,
-		lon: 151.2,
-	})
+	const [city, setCity] = useState('Sydney')
+	const [currentWeather, setCurrentWeather] = useState(null)
+
+	
+	useEffect(() => {
+		let isCalled = false
+		async function getWeather() {
+			const weatherData = await currentWeatherCall(city)
+			if (!isCalled) setCurrentWeather(weatherData)
+		}
+		getWeather()
+		return () => (isCalled = true)
+	}, [city])
 
 	return (
 		<div className={style.app}>
