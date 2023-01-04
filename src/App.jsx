@@ -11,7 +11,7 @@ function App() {
 	const [city, setCity] = useState('Sydney')
 	const [currentWeather, setCurrentWeather] = useState(null)
 
-	
+	console.log(currentWeather);
 	useEffect(() => {
 		let isCalled = false
 		async function getWeather() {
@@ -21,7 +21,7 @@ function App() {
 		getWeather()
 		return () => (isCalled = true)
 	}, [city])
-
+	
 	return (
 		<div className={style.app}>
 			<Header setCity={setCity} />
@@ -31,5 +31,5 @@ function App() {
 		</div>
 	)
 }
-
+// this is a comment
 export default App
