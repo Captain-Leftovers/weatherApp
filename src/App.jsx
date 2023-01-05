@@ -23,9 +23,10 @@ function App() {
 	}, [city])
 	
 	return (
-		<div className={style.app}>
+		<div 
+		className= {currentWeather ? style.app : style.appBlur}>
 			<Header setCity={setCity} />
-			<CurrentTimeCard />
+			<CurrentTimeCard {...currentWeather} />
 			<HourlyCard />
 			<DailyCard />
 		</div>

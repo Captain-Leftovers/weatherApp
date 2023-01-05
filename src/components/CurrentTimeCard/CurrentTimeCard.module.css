@@ -1,12 +1,14 @@
 .cardContainer {
-    height:200px;
-    width: 500px;
+    height:40%;
+    width: 80%;
     background-color:#141414;
     border-radius: 20px;
     display:flex;
     flex-direction: column;
     padding: 5px 20px 15px;
     justify-content: space-between;
+    max-width: 1400px;
+    max-height: 500px;
 }
 
 .currentTime{
@@ -16,6 +18,9 @@
 .secondRow{
     display:flex;
     justify-content: space-between;
+    align-items: center;
+    height: auto;
+    width: auto;
 }
 
 .thirdRow{
@@ -27,6 +32,11 @@
     color: #000000;
 }
 
-.rf{
 
+.icon{
+    height: 150px;
+    width: 150px;
+    /* background-color: aliceblue; */
+   background-size: cover;
 }
+/* background-image: url('../../assets/01d@2x.png') */

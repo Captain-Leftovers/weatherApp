@@ -4,8 +4,8 @@ export const currentWeatherCall = async (city) => {
 	let weatherData = await fetch(
 		`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
 	).then((res) => res.json())
-	console.log(weatherData)
-	const {
+	console.log(weatherData);
+	let {
 		coord: { lon, lat },
 		weather,
 		main: { temp, feels_like, temp_min, temp_max },
@@ -29,11 +29,18 @@ export const currentWeatherCall = async (city) => {
 		weekDay: weekdays[currentTime.getDay()],
 		hoursMins: currentTime.toLocaleTimeString().slice(0, 5),
 	}
+	
 
-	console.log(time.hoursMins)
-
+	
 	const { main: condition, icon } = weather[0]
-	const { speed: windSpeed } = wind
+	let { speed: windSpeed } = wind
+	windSpeed = Math.round(windSpeed)
+	temp = Math.round(temp)
+	feels_like = Math.round(feels_like)
+	temp_min = Math.round(temp_min)
+	temp_max = Math.round(temp_max)
+
+	console.log(temp)
 	return {
 		time,
 		lon,
@@ -49,3 +56,6 @@ export const currentWeatherCall = async (city) => {
 		name,
 	}
 }
+
+
+//TODO remove all console logs from the project !!!
