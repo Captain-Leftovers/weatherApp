@@ -4,7 +4,6 @@ export const currentWeatherCall = async (city) => {
 	let weatherData = await fetch(
 		`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
 	).then((res) => res.json())
-	console.log(weatherData);
 	let {
 		coord: { lon, lat },
 		weather,
@@ -13,24 +12,28 @@ export const currentWeatherCall = async (city) => {
 		dt,
 		sys: { country },
 		name,
+		timezone,
 	} = weatherData
 
-	const weekdays = [
-		'Sunday',
-		'Monday',
-		'Tuesday',
-		'Wednesday',
-		'Thursday',
-		'Friday',
-		'Saturday',
-	]
-	let currentTime = new Date(dt * 1000)
-	const time = {
-		weekDay: weekdays[currentTime.getDay()],
-		hoursMins: currentTime.toLocaleTimeString().slice(0, 5),
+	const weekdays = {
+
+		Sun :'Sunday',
+		Mon :'Monday',
+		Tue:'Tuesday',
+		Wed:'Wednesday',
+		Thu:'Thursday',
+		Fri:'Friday',
+		Sat:'Saturday',
 	}
 	
 
+	let currentTime = new Date(dt * 1000 + timezone * 1000)
+	let weekDay = weekdays[currentTime.toUTCString().slice(0,3)]
+	let hoursMins = currentTime.toUTCString().slice(17,22)
+	const time = {
+		weekDay,
+		hoursMins,
+	}
 	
 	const { main: condition, icon } = weather[0]
 	let { speed: windSpeed } = wind
@@ -41,6 +44,7 @@ export const currentWeatherCall = async (city) => {
 	temp_max = Math.round(temp_max)
 
 	console.log(temp)
+
 	return {
 		time,
 		lon,
@@ -57,5 +61,9 @@ export const currentWeatherCall = async (city) => {
 	}
 }
 
+export const getImageUrl = (imageCode, size = '2x') => {
+	if(!imageCode) return
+	let url = `http://openweathermap.org/img/wn/${imageCode}@${size}.png`
+	return url
+}
 
-//TODO remove all console logs from the project !!!

@@ -1,5 +1,6 @@
 import style from './CurrentTimeCard.module.css'
-import imagePlaceholder  from '../../assets/01d@2x.png'
+import imagePlaceholder  from '../../assets/10d@4x.png'
+import { getImageUrl } from '../../../services/weatherService';
 
 export default function CurrentTimeCard({
     // currentWeather,
@@ -17,28 +18,32 @@ export default function CurrentTimeCard({
 	country = 'AU',
 	name = 'Sydney',
 }) {
-
-    console.log(time);
+        
+		let iconNew = getImageUrl(icon)
+		let iconUrl = iconNew || imagePlaceholder;
 
  //TODO populate data and fix css
 
 	return (
 		<div className={style.cardContainer}>
-			<div className={style.currentTime}>{time?.hoursMins}</div>
+			<div className="firstRow">
+				<div className={style.currentDay}>{time?.weekDay}</div>
+				<div className={style.currentTime}>{time?.hoursMins}</div>
+			</div>
 			<div className={style.secondRow}>
 				<div className={style.deg}>{temp}&deg;C</div>
 				<div className={style.detail}>{condition}</div>
-				<div className={style.icon} style={{backgroundImage: `url(${imagePlaceholder})`}} ></div>
+				<div className={style.icon} style={{backgroundImage: `url(${iconUrl})`}} ></div>
 			</div>
 			<div className={style.thirdRow}>
-				<div className={style.rf}>(RF: 30&deg;)</div>
+				<div className={style.rf}>RF: {feels_like}&deg;C</div>
 				<div className={style.separator}>|</div>
-				<div className={style.humidity}>L:15&deg;C</div>
+				<div className={style.tempMin}>L: {temp_min}&deg;C</div>
 				<div className={style.separator}>|</div>
-				<div className={style.humidity}>H:27&deg;C</div>
+				<div className={style.tempHi}>H: {temp_max}&deg;C</div>
 				<div className={style.separator}>|</div>
 				<div className={style.windSpeed}>
-					(Wind Speed: 50)
+					Wind Speed: {windSpeed} m/s
 				</div>
 			</div>
 		</div>

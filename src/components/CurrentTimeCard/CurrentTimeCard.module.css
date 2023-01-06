@@ -9,6 +9,7 @@
     justify-content: space-between;
     max-width: 1400px;
     max-height: 500px;
+    min-height: 250px;
 }
 
 .currentTime{

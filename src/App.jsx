@@ -8,10 +8,10 @@ import { useEffect, useState } from 'react'
 import { currentWeatherCall } from '../services/weatherService'
 
 function App() {
-	const [city, setCity] = useState('Sydney')
+	const [city, setCity] = useState('Paris')
 	const [currentWeather, setCurrentWeather] = useState(null)
 
-	console.log(currentWeather);
+	console.log(currentWeather)
 	useEffect(() => {
 		let isCalled = false
 		async function getWeather() {
@@ -21,11 +21,10 @@ function App() {
 		getWeather()
 		return () => (isCalled = true)
 	}, [city])
-	
+
 	return (
-		<div 
-		className= {currentWeather ? style.app : style.appBlur}>
-			<Header setCity={setCity} />
+		<div className={currentWeather ? style.app : style.appBlur}>
+			<Header setCity={setCity} city={city} />
 			<CurrentTimeCard {...currentWeather} />
 			<HourlyCard />
 			<DailyCard />
@@ -34,3 +33,4 @@ function App() {
 }
 // this is a comment
 export default App
+//TODO remove all console logs from the project !!!
