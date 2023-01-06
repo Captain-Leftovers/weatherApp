@@ -3,7 +3,6 @@ import imagePlaceholder  from '../../assets/10d@4x.png'
 import { getImageUrl } from '../../../services/weatherService';
 
 export default function CurrentTimeCard({
-    // currentWeather,
 	time = {
         hoursMins : '11:45',
         weekDay: 'Friday'

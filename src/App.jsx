@@ -6,21 +6,26 @@ import style from './App.module.css'
 import { useEffect, useState } from 'react'
 
 import { currentWeatherCall } from '../services/weatherService'
+import useFetch from './hooks/useFetch.js'
 
 function App() {
 	const [city, setCity] = useState('Paris')
-	const [currentWeather, setCurrentWeather] = useState(null)
+	// const [currentWeather, setCurrentWeather] = useState(null)
+	// const [oneCallData, setOneCallData] = useState(null)
+	console.log(city);
+	const [currentWeather, errorStatus] = useFetch(city)
+	console.log(currentWeather);
+	// const oneCallData = useFetch()
 
-	console.log(currentWeather)
-	useEffect(() => {
-		let isCalled = false
-		async function getWeather() {
-			const weatherData = await currentWeatherCall(city)
-			if (!isCalled) setCurrentWeather(weatherData)
-		}
-		getWeather()
-		return () => (isCalled = true)
-	}, [city])
+	// useEffect(() => {
+	// 	let isCalled = false
+	// 	async function getWeather() {
+	// 		const weatherData = await currentWeatherCall(city)
+	// 		if (!isCalled) setCurrentWeather(weatherData)
+	// 	}
+	// 	getWeather()
+	// 	return () => (isCalled = true)
+	// }, [city])
 
 	return (
 		<div className={currentWeather ? style.app : style.appBlur}>
@@ -34,3 +39,4 @@ function App() {
 // this is a comment
 export default App
 //TODO remove all console logs from the project !!!
+//TODO remove all comments
