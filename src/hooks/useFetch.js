@@ -4,13 +4,15 @@ import { currentWeatherCall } from '../../services/weatherService'
 export default function useFetch(city, coord) {
 	const [data, setData] = useState(null)
 	const [errorStatus, setErrorStatus] = useState()
-	try {useEffect(() => {
+	useEffect(() => {
 		if (!coord) {
 			async function getWeather() {
 				
-            const weatherData =
-            await currentWeatherCall(city)
+            const [weatherData, errorData] =
+            await currentWeatherCall(city).catch(e => [null, e])
+			//TODO make sure to set the data and error status !!!
             setData(weatherData)
+			setErrorStatus(errorData)
         
 			}
 			getWeather()
@@ -20,9 +22,7 @@ export default function useFetch(city, coord) {
 
 		return
 	}, [city])
-} catch (e) {
-    console.log(e.message);
-}
+
 
 	return [data , errorStatus]
 }

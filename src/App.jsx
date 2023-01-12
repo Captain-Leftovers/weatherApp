@@ -10,22 +10,9 @@ import useFetch from './hooks/useFetch.js'
 
 function App() {
 	const [city, setCity] = useState('Paris')
-	// const [currentWeather, setCurrentWeather] = useState(null)
-	// const [oneCallData, setOneCallData] = useState(null)
-	console.log(city);
+	
 	const [currentWeather, errorStatus] = useFetch(city)
-	console.log(currentWeather);
-	// const oneCallData = useFetch()
-
-	// useEffect(() => {
-	// 	let isCalled = false
-	// 	async function getWeather() {
-	// 		const weatherData = await currentWeatherCall(city)
-	// 		if (!isCalled) setCurrentWeather(weatherData)
-	// 	}
-	// 	getWeather()
-	// 	return () => (isCalled = true)
-	// }, [city])
+	
 
 	return (
 		<div className={currentWeather ? style.app : style.appBlur}>

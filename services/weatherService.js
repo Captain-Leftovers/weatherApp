@@ -1,16 +1,14 @@
 const API_KEY = import.meta.env.VITE_API_KEY
-
 export const currentWeatherCall = async (city) => {
-	
-	try 	{let weatherCall = await fetch(
+
+	let weatherCall = await fetch(
 		`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
 	)
+	if(!weatherCall.ok){
+		throw new Error('City not found')
+	}
 	let weatherData = await weatherCall.json()
 
-	if (weatherData.cod !== 200) {
-		console.log(weatherData);
-		throw new Error(weatherData.message)
-	}
 	let {
 		coord: { lon, lat },
 		weather,
@@ -40,9 +38,8 @@ export const currentWeatherCall = async (city) => {
 		weekDay,
 		hoursMins,
 	}
-	
-	console.log(time)
-	
+
+
 	const { main: condition, icon } = weather[0]
 	let { speed: windSpeed } = wind
 	windSpeed = Math.round(windSpeed)
@@ -50,10 +47,10 @@ export const currentWeatherCall = async (city) => {
 	feels_like = Math.round(feels_like)
 	temp_min = Math.round(temp_min)
 	temp_max = Math.round(temp_max)
+
 	
-	console.log(temp)
-	
-	return {
+
+	return [{
 		time,
 		lon,
 		lat,
@@ -66,10 +63,7 @@ export const currentWeatherCall = async (city) => {
 		windSpeed,
 		country,
 		name,
-	}
-} catch (e){
-	console.log(e);
-}
+	}, null]
 }
 
 export const oneCallFetch = async (coord) => {
@@ -77,7 +71,6 @@ export const oneCallFetch = async (coord) => {
 		`https://api.openweathermap.org/data/3.0/onecall?lat=${coord.lat}&lon=${coord.lon}&appid=${API_KEY}`
 	)
 	let res = await oneCallData.json()
-	console.log(res)
 }
 
 export const getImageUrl = (imageCode, size = '2x') => {
