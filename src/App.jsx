@@ -3,15 +3,17 @@ import CurrentTimeCard from './components/CurrentTimeCard/CurrentTimeCard.jsx'
 import Header from './components/Header/Header.jsx'
 import DailyCard from './components/DailyCard/DailyCard.jsx'
 import style from './App.module.css'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
-import { currentWeatherCall } from '../services/weatherService'
 import useFetch from './hooks/useFetch.js'
 
 function App() {
 	const [city, setCity] = useState('Paris')
+	const [currentWeather, errorStatus] = useFetch(city, 'current')
+	console.log(currentWeather);
 	
-	const [currentWeather, errorStatus] = useFetch(city)
+	
+		//TODO add error handling for the fetch
 	
 
 	return (

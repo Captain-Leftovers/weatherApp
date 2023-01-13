@@ -1,4 +1,5 @@
 const API_KEY = import.meta.env.VITE_API_KEY
+
 export const currentWeatherCall = async (city) => {
 
 	let weatherCall = await fetch(
@@ -10,7 +11,7 @@ export const currentWeatherCall = async (city) => {
 	let weatherData = await weatherCall.json()
 
 	let {
-		coord: { lon, lat },
+		coord,
 		weather,
 		main: { temp, feels_like, temp_min, temp_max },
 
@@ -52,8 +53,7 @@ export const currentWeatherCall = async (city) => {
 
 	return [{
 		time,
-		lon,
-		lat,
+		coord,
 		condition,
 		icon,
 		temp,
@@ -66,15 +66,19 @@ export const currentWeatherCall = async (city) => {
 	}, null]
 }
 
-export const oneCallFetch = async (coord) => {
+export const forecastWeatherCall = async (coord) => {
+	console.log(coord);
 	let oneCallData = await fetch(
 		`https://api.openweathermap.org/data/3.0/onecall?lat=${coord.lat}&lon=${coord.lon}&appid=${API_KEY}`
 	)
+	 console.log(oneCallData);
 	let res = await oneCallData.json()
+	console.log(res);
+	return [res, null]
 }
 
 export const getImageUrl = (imageCode, size = '2x') => {
-	if (!imageCode) return
+	if (!imageCode){return}
 	let url = `http://openweathermap.org/img/wn/${imageCode}@${size}.png`
 	return url
-}
+ }
