@@ -71,6 +71,8 @@ export const forecastWeatherCall = async (coord) => {
 	let oneCallData = await fetch(
 		`https://api.openweathermap.org/data/3.0/onecall?lat=${coord.lat}&lon=${coord.lon}&appid=${API_KEY}`
 	)
+	if(!oneCallData.ok){
+		throw new Error(oneCallData.statusText)}
 	 console.log(oneCallData);
 	let res = await oneCallData.json()
 	console.log(res);

@@ -9,15 +9,16 @@ import useFetch from './hooks/useFetch.js'
 
 function App() {
 	const [city, setCity] = useState('Paris')
-	const [currentWeather, errorStatus] = useFetch(city, 'current')
-	console.log(currentWeather);
+	const [weather, errorStatus] = useFetch(city, 'current')
+	console.log(weather);
+	console.log(errorStatus);
 	
-	
+	let currentWeather = weather ? weather[0] : null
 		//TODO add error handling for the fetch
 	
-
+	
 	return (
-		<div className={currentWeather ? style.app : style.appBlur}>
+		<div className={weather ? style.app : style.appBlur}>
 			<Header setCity={setCity} city={city} />
 			<CurrentTimeCard {...currentWeather} />
 			<HourlyCard />
