@@ -1,4 +1,3 @@
-import HourlyCard from './components/HourlyCard/HourlyCard.jsx'
 import CurrentTimeCard from './components/CurrentTimeCard/CurrentTimeCard.jsx'
 import Header from './components/Header/Header.jsx'
 import DailyCard from './components/DailyCard/DailyCard.jsx'
@@ -6,6 +5,7 @@ import style from './App.module.css'
 import { useState } from 'react'
 
 import useFetch from './hooks/useFetch.js'
+import HourlyComponent from './components/HourlyComponent/HourlyComponent.jsx'
 
 function App() {
 	const [city, setCity] = useState('Paris')
@@ -21,7 +21,7 @@ function App() {
 		<div className={weather ? style.app : style.appBlur}>
 			<Header setCity={setCity} city={city} />
 			<CurrentTimeCard {...currentWeather} />
-			<HourlyCard />
+			<HourlyComponent/>
 			<DailyCard />
 		</div>
 	)
