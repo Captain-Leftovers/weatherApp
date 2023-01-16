@@ -3,8 +3,7 @@ import LocationSvg from './assets/LocationSvg'
 import style from './Header.module.css'
 
 
-export default function Header({ setCity, city }) {
-
+export default function Header({ isError, setCity, city }) {
 	function inputHandler(e) {
 		if (e.keyCode === 13) {
 			let input = (e.currentTarget.value)
@@ -14,11 +13,10 @@ export default function Header({ setCity, city }) {
 			e.currentTarget.blur()
 		}
 	}
-
 	return (
 		<div className={style.headerContainer}>
 			<div className="locationWrap">
-				<p className="locationText">{city}</p>
+				<p className="locationText">{city}<span>{isError ? ` ${isError}`:''}</span></p>
 			</div>
 			<div className={style.inputWrapper}>
 				<input

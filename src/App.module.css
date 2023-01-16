@@ -18,3 +18,7 @@
     justify-content: space-between;
     filter: blur(4px);
 }
+
+.blur{
+    filter: blur(4px);
+}

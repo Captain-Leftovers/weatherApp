@@ -8,22 +8,22 @@ import useFetch from './hooks/useFetch.js'
 import HourlyComponent from './components/HourlyComponent/HourlyComponent.jsx'
 
 function App() {
-	const [city, setCity] = useState('Paris')
+	const [city, setCity] = useState('Sydney')
 	const [weather, errorStatus] = useFetch(city, 'current')
 	console.log(weather);
-	console.log(errorStatus);
-	
+	console.log(errorStatus);;
 	let currentWeather = weather ? weather[0] : null
 		//TODO add error handling for the fetch
 	
-	
 	return (
-		<div className={weather ? style.app : style.appBlur}>
-			<Header setCity={setCity} city={city} />
+		
+		<div className={weather || errorStatus ? style.app : style.appBlur} >
+			<Header isError={errorStatus} setCity={setCity} city={city} />
 			<CurrentTimeCard {...currentWeather} />
 			<HourlyComponent/>
-			<DailyCard />
+			<DailyCard  />
 		</div>
+
 	)
 }
 // this is a comment

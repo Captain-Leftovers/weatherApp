@@ -1,6 +1,5 @@
 import style from './CurrentTimeCard.module.css'
 import imagePlaceholder  from '../../assets/10d@4x.png'
-import { getImageUrl } from '../../../services/weatherService';
 
 export default function CurrentTimeCard({
 	time = {
@@ -8,18 +7,16 @@ export default function CurrentTimeCard({
         weekDay: 'Friday'
     },
 	condition = 'Clouds',
-	icon,
 	temp = '25',
 	feels_like = '23',
 	temp_min = '19',
 	temp_max = '28',
 	windSpeed = '5.66',
-	country = 'AU',
-	name = 'Sydney',
+
 }) {
         
-		let iconNew = getImageUrl(icon)
-		let iconUrl = iconNew || imagePlaceholder;
+			//TODO fix icon
+		let iconUrl = /* iconNew ||  */imagePlaceholder;
 
  //TODO populate data and fix css
 
