@@ -5,22 +5,19 @@ import style from './App.module.css'
 import { useState } from 'react'
 
 import useFetch from './hooks/useFetch.js'
-import HourlyComponent from './components/HourlyComponent/HourlyComponent.jsx'
+import HourlyCard from './components/HourlyCard/HourlyCard.jsx'
 
 function App() {
 	const [city, setCity] = useState('Sydney')
 	const [weather, errorStatus] = useFetch(city, 'current')
-	console.log(weather);
-	console.log(errorStatus);;
-	let currentWeather = weather ? weather[0] : null
 		//TODO add error handling for the fetch
 	
 	return (
 		
 		<div className={weather || errorStatus ? style.app : style.appBlur} >
-			<Header isError={errorStatus} setCity={setCity} city={city} />
-			<CurrentTimeCard {...currentWeather} />
-			<HourlyComponent/>
+			<Header isError={errorStatus} setCity={setCity} placeName={weather?.city} />
+			<CurrentTimeCard {...weather} />
+			<HourlyCard hourly={weather?.hourly}/>
 			<DailyCard  />
 		</div>
 

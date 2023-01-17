@@ -17,3 +17,13 @@
     background-position:-25px -25px;
     /* adjust if not aligning when changing icons */
 }
+
+.cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width:90vw;
+    background-color: aquamarine;
+    overflow:scroll;
+}

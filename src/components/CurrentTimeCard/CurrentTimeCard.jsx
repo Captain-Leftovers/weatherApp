@@ -2,21 +2,21 @@ import style from './CurrentTimeCard.module.css'
 import imagePlaceholder  from '../../assets/10d@4x.png'
 
 export default function CurrentTimeCard({
-	time = {
-        hoursMins : '11:45',
-        weekDay: 'Friday'
-    },
-	condition = 'Clouds',
-	temp = '25',
-	feels_like = '23',
-	temp_min = '19',
-	temp_max = '28',
-	windSpeed = '5.66',
+	time = {weekDay: 'Monday', hoursMins: '12:00'},
+	temperature = '23',
+	feelsLike = '25',
+	tempMin = '20',
+	tempMax = '24',
+	description = 'Rain',
+	image = imagePlaceholder,
+	wind = 3,
+
 
 }) {
+
         
 			//TODO fix icon
-		let iconUrl = /* iconNew ||  */imagePlaceholder;
+		let iconUrl = image || imagePlaceholder;
 
  //TODO populate data and fix css
 
@@ -27,19 +27,19 @@ export default function CurrentTimeCard({
 				<div className={style.currentTime}>{time?.hoursMins}</div>
 			</div>
 			<div className={style.secondRow}>
-				<div className={style.deg}>{temp}&deg;C</div>
-				<div className={style.detail}>{condition}</div>
+				<div className={style.deg}>{temperature}&deg;C</div>
+				<div className={style.detail}>{description}</div>
 				<div className={style.icon} style={{backgroundImage: `url(${iconUrl})`}} ></div>
 			</div>
 			<div className={style.thirdRow}>
-				<div className={style.rf}>RF: {feels_like}&deg;C</div>
+				<div className={style.rf}>RF: {feelsLike}&deg;C</div>
 				<div className={style.separator}>|</div>
-				<div className={style.tempMin}>L: {temp_min}&deg;C</div>
+				<div className={style.tempMin}>L: {tempMin}&deg;C</div>
 				<div className={style.separator}>|</div>
-				<div className={style.tempHi}>H: {temp_max}&deg;C</div>
+				<div className={style.tempHi}>H: {tempMax}&deg;C</div>
 				<div className={style.separator}>|</div>
 				<div className={style.windSpeed}>
-					Wind Speed: {windSpeed} m/s
+					Wind Speed: {wind} m/s
 				</div>
 			</div>
 		</div>

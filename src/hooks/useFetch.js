@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getWeather } from "../../services/weatherService"
+import { getWeather } from "../services/weatherService"
 
 
 export default function useFetch (city){

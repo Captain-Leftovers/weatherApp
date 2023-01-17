@@ -22,7 +22,7 @@ const getCurrentWeather = async (city) => {
 
 const getOneCall = async (lat, lon) => {
 	try {
-		const oneCallData = await fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`)
+		const oneCallData = await fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely&appid=${API_KEY}&units=metric`)
 	 	if(!oneCallData.ok){
 		throw new Error(oneCallData.statusText)}
 
@@ -37,11 +37,13 @@ const getOneCall = async (lat, lon) => {
 const formattedTime = (dt, timezone) => {
 
 	let currentTime = new Date(dt * 1000 + timezone * 1000)
+	let dayMontYear = currentTime.toUTCString().slice(5,16)
 	let weekDay = weekdays[currentTime.toUTCString().slice(0, 3)]
 	let hoursMins = currentTime.toUTCString().slice(17, 22)
 	const time = {
 		weekDay,
 		hoursMins,
+		dayMontYear,
 	}
 	return time
 }
@@ -58,18 +60,51 @@ const weatherFormatter = (currentWeather, oneCall) => {
 	let time = formattedTime(currentWeather.dt, currentWeather.timezone)
 	let imageCode = currentWeather.weather[0].icon
 	let image = getImageUrl(imageCode)
+	oneCall.daily = oneCall.daily.map((day) => {
+		let time = formattedTime(day.dt, currentWeather.timezone)
+		let temp = Object.fromEntries(Object.entries(day.temp).map(([key, value]) => {
+			return  [key, Math.round(value).toFixed()]
+			}))
+		let feelsLike = Object.fromEntries(Object.entries(day.feels_like).map(([key, value]) => {
+			return  [key, Math.round(value).toFixed()]
+			}))
+
+		let humidity = Math.round(day.humidity).toFixed()
+		let wind = Math.round(day.wind_speed).toFixed()
+		let description = day.weather[0].main
+		let icon = getImageUrl(day.weather[0].icon)
+		let pop = day.pop * 100
+		let rain = day.rain || 0
+		return {time, temp, feelsLike, humidity, wind, description, icon, pop, rain}
+	})
+	
+	oneCall.hourly = oneCall.hourly.map((hour) => {
+		let time = formattedTime(hour.dt, currentWeather.timezone)
+		let temp = Math.round(hour.temp).toFixed()
+		let feelsLike = Math.round(hour.feels_like).toFixed()
+		let humidity = Math.round(hour.humidity).toFixed()
+		let wind = Math.round(hour.wind_speed).toFixed()
+		let description = hour.weather[0].main
+		let icon = getImageUrl(hour.weather[0].icon)
+		let pop = (hour.pop * 100).toFixed()
+		let rain = hour.rain && hour.rain['1h'] || 0
+		return {time, temp, feelsLike, humidity, wind, description, icon, pop, rain}
+
+	})
+	
 
 	const weather = {
 		time,
 		city: currentWeather.name,
-		temperature: currentWeather.main.temp,
-		feelsLike: currentWeather.main.feels_like,
-		tempMin: currentWeather.main.temp_min,
-		tempMax: currentWeather.main.temp_max,
-		description: currentWeather.weather[0].description,
+		country: currentWeather.sys.country,
+		temperature: Math.round(currentWeather.main.temp).toFixed(),
+		feelsLike: Math.round(currentWeather.main.feels_like).toFixed(),
+		tempMin: Math.round(currentWeather.main.temp_min).toFixed(),
+		tempMax: Math.round(currentWeather.main.temp_max).toFixed(),
+		description: currentWeather.weather[0].main,
 		image,
-		humidity: currentWeather.main.humidity,
-		wind: currentWeather.wind.speed,
+		humidity: Math.round(currentWeather.main.humidity).toFixed(),
+		wind: Math.round(currentWeather.wind.speed).toFixed(),
 		pressure: currentWeather.main.pressure,
 		daily: oneCall.daily,
 		hourly: oneCall.hourly,
