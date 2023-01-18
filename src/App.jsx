@@ -11,19 +11,20 @@ function App() {
 	const [city, setCity] = useState('Sydney')
 	const [weather, errorStatus] = useFetch(city, 'current')
 		//TODO add error handling for the fetch
-	
+
+
 	return (
 		
 		<div className={weather || errorStatus ? style.app : style.appBlur} >
 			<Header isError={errorStatus} setCity={setCity} placeName={weather?.city} />
 			<CurrentTimeCard {...weather} />
 			<HourlyCard hourly={weather?.hourly}/>
-			<DailyCard  />
+			<DailyCard daily={weather?.daily} />
 		</div>
 
 	)
 }
-// this is a comment
+
 export default App
 //TODO remove all console logs from the project !!!
 //TODO remove all comments

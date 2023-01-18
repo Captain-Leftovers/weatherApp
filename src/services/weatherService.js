@@ -60,14 +60,16 @@ const weatherFormatter = (currentWeather, oneCall) => {
 	let time = formattedTime(currentWeather.dt, currentWeather.timezone)
 	let imageCode = currentWeather.weather[0].icon
 	let image = getImageUrl(imageCode)
+	
 	oneCall.daily = oneCall.daily.map((day) => {
 		let time = formattedTime(day.dt, currentWeather.timezone)
 		let temp = Object.fromEntries(Object.entries(day.temp).map(([key, value]) => {
 			return  [key, Math.round(value).toFixed()]
 			}))
-		let feelsLike = Object.fromEntries(Object.entries(day.feels_like).map(([key, value]) => {
+			let feelsLike = Object.fromEntries(Object.entries(day.feels_like).map(([key, value]) => {
 			return  [key, Math.round(value).toFixed()]
 			}))
+
 
 		let humidity = Math.round(day.humidity).toFixed()
 		let wind = Math.round(day.wind_speed).toFixed()
@@ -76,8 +78,8 @@ const weatherFormatter = (currentWeather, oneCall) => {
 		let pop = day.pop * 100
 		let rain = day.rain || 0
 		return {time, temp, feelsLike, humidity, wind, description, icon, pop, rain}
-	})
-	
+	}).slice(1)
+		
 	oneCall.hourly = oneCall.hourly.map((hour) => {
 		let time = formattedTime(hour.dt, currentWeather.timezone)
 		let temp = Math.round(hour.temp).toFixed()
@@ -90,8 +92,7 @@ const weatherFormatter = (currentWeather, oneCall) => {
 		let rain = hour.rain && hour.rain['1h'] || 0
 		return {time, temp, feelsLike, humidity, wind, description, icon, pop, rain}
 
-	})
-	
+	}).slice(1)
 
 	const weather = {
 		time,
@@ -109,6 +110,8 @@ const weatherFormatter = (currentWeather, oneCall) => {
 		daily: oneCall.daily,
 		hourly: oneCall.hourly,
 	}
+
+
 	return weather
 
 }
