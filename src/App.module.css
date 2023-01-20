@@ -16,7 +16,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    filter: blur(4px);
+    filter: blur(20px);
 }
 
 .blur{

@@ -1,14 +1,17 @@
 import style from './DailyCard.module.css'
 import imagePlaceholder  from '../../assets/01d@2x.png'
 
-export default function DailyCard({daily}) {
-	
+const dummyData = [{},{},{},{},{},{}]
+
+
+export default function DailyCard({daily = dummyData}) {
+	console.log(daily);
 	let dailyCards = daily?.map((day, index) => {
-		let weekDay = day.time.weekDay || 'Monday'
-		let deg = day.temp.day || '23'
-		let rf = day.feelsLike.day || '23'
-		let detail = day.description || 'Rainy'
-		let icon = day.icon || '01d'
+		let weekDay = day?.time?.weekDay || 'Monday'
+		let deg = day?.temp?.day || '23'
+		let rf = day?.feelsLike?.day || '23'
+		let detail = day?.description || 'Rainy'
+		let icon = day?.icon || '01d'
 		let iconUrl = icon || imagePlaceholder
         return (
         <div className={style.dailyCard} key={crypto.randomUUID()} >
@@ -26,7 +29,9 @@ export default function DailyCard({daily}) {
     })
 
 	return (
+		<>
 		<div className={style.cards}>{dailyCards}</div>
+		</>
 
 	)
 	
