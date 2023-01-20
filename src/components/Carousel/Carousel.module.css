@@ -4,7 +4,7 @@
   
   :root {
     --handle-size: 3rem;
-    --img-gap: .25rem;
+    --img-gap: 0.25rem;
   }
   
  
@@ -13,6 +13,7 @@
     display: flex;
     justify-content: center;
     overflow: hidden;
+    width: 100%;
   }
   
   .slider {
@@ -21,15 +22,16 @@
     display: flex;
     flex-grow: 1;
     margin: 0 var(--img-gap);
-    transform: translateX(calc(var(--slider-index) * -100%));
+    transform: translateX(calc(var(--slider-index) * -25%));
+    /* ^ 100% if you want to move the whole content*/
     transition: transform 250ms ease-in-out;
   }
   
-  .slider > img {
+  .slider > div {
     flex: 0 0 calc(100% / var(--items-per-screen));
-    max-width: calc(100% / var(--items-per-screen));
+    max-width: calc(97.2% / var(--items-per-screen));
     aspect-ratio: 16 / 9;
-    padding: var(--img-gap);
+    margin: var(--img-gap);
     border-radius: 1rem;
   }
   

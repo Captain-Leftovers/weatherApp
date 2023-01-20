@@ -1,11 +1,12 @@
 import style from './DailyCard.module.css'
 import imagePlaceholder  from '../../assets/01d@2x.png'
+import Carousel from '../Carousel/Carousel';
+
 
 const dummyData = [{},{},{},{},{},{}]
 
 
 export default function DailyCard({daily = dummyData}) {
-	console.log(daily);
 	let dailyCards = daily?.map((day, index) => {
 		let weekDay = day?.time?.weekDay || 'Monday'
 		let deg = day?.temp?.day || '23'
@@ -29,9 +30,9 @@ export default function DailyCard({daily = dummyData}) {
     })
 
 	return (
-		<>
-		<div className={style.cards}>{dailyCards}</div>
-		</>
+		<div className={style.cards}>
+			<Carousel days={dailyCards} />
+		</div>
 
 	)
 	

@@ -3,7 +3,6 @@ import Header from './components/Header/Header.jsx'
 import DailyCard from './components/DailyCard/DailyCard.jsx'
 import style from './App.module.css'
 import HourlyCard from './components/HourlyCard/HourlyCard.jsx'
-import Carousel from  "./components/Carousel/Carousel.jsx"
 
 import { useState } from 'react'
 import useFetch from './hooks/useFetch.js'
@@ -20,7 +19,6 @@ function App() {
 		<div className={weather || errorStatus ? style.app : style.appBlur} >
 			<Header isError={errorStatus} setCity={setCity} placeName={weather?.city} />
 			<CurrentTimeCard {...weather} />
-			<Carousel />
 			<HourlyCard hourly={weather?.hourly}/>
 			<DailyCard daily={weather?.daily} />
 		</div>
