@@ -13,7 +13,6 @@
 .cards{
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
     justify-content: space-between;
     background-color: aquamarine;
     width: 100%;

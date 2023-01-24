@@ -22,14 +22,13 @@
     flex-grow: 1;
     margin: 0 var(--img-gap);
     transform: translateX(calc(var(--slider-index) * -25%));
-    /* ^ 100% if you want to move the whole content*/
     transition: transform 250ms ease-in-out;
+    width: 90%;
   }
   
   .slider > div {
     flex: 0 0 calc(100% / var(--items-per-screen));
-    max-width: calc(97.2% / var(--items-per-screen));
-    aspect-ratio: 16 / 9;
+    max-width: calc(100% / var(--items-per-screen));
     margin: var(--img-gap);
     border-radius: 1rem;
   }

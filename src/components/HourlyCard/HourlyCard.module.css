@@ -2,28 +2,34 @@
     background-color: #141414;
     display:flex;
     flex-direction: column;
-    height: 300px;
-    width: 200px;
     border-radius: 20px;
     padding:5px 20px 15px;
     justify-content: space-between;
     align-items: center;
+
+   
 }
 
-.icon{
+/* .icon{
     height: 50px;
     width: 50px;
-    /* background-color: aliceblue; */
     background-position:-25px -25px;
-    /* adjust if not aligning when changing icons */
-}
+} */
 
 .cards{
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
     justify-content: space-between;
-    width:90vw;
     background-color: aquamarine;
-    overflow:scroll;
+    width: 100%;
+    height: 20vh;
 }
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: aquamarine;
+    width: 100%;
+    height: 20vh; */
+
+    
+    
