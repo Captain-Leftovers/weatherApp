@@ -19,14 +19,15 @@ let hourlyCards = hourly?.map((hour) => {
     let icon = hour?.icon || '01d'
     let iconUrl = icon || imagePlaceholder;
         return  (
-            <div className={style.hourlyCard} key={crypto.randomUUID()}>
+
+
+        <div className={style.hourlyCard} key={crypto.randomUUID()}>
+            <div className={style.content}>
                 <div className={style.time}>{time}</div>
-                <div className={style.time}>{day}</div>
                 <div className={style.deg}>{deg}&deg;C</div>
-                <div className={style.rf}>RF:{rf}&deg;</div>
-                <div className={style.detail}>{detail}</div>
-                <div className={style.icon} style={{backgroundImage: `url(${iconUrl})`}} ></div>
             </div>
+        </div>
+          
         )
 
 

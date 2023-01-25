@@ -9,8 +9,8 @@ export default function CurrentTimeCard({
 	tempMax = '24',
 	description = 'Rain',
 	image = imagePlaceholder,
-	wind = 3,
-
+	wind = 0.66,
+	rain = 0.7,
 
 }) {
 
@@ -22,26 +22,23 @@ export default function CurrentTimeCard({
 
 	return (
 		<div className={style.cardContainer}>
-			<div className="firstRow">
-				<div className={style.currentDay}>{time?.weekDay}</div>
-				<div className={style.currentTime}>{time?.hoursMins}</div>
-			</div>
-			<div className={style.secondRow}>
-				<div className={style.deg}>{temperature}&deg;C</div>
-				<div className={style.detail}>{description}</div>
-				<div className={style.icon} style={{backgroundImage: `url(${iconUrl})`}} ></div>
-			</div>
-			<div className={style.thirdRow}>
-				<div className={style.rf}>RF: {feelsLike}&deg;C</div>
-				<div className={style.separator}>|</div>
-				<div className={style.tempMin}>L: {tempMin}&deg;C</div>
-				<div className={style.separator}>|</div>
-				<div className={style.tempHi}>H: {tempMax}&deg;C</div>
-				<div className={style.separator}>|</div>
-				<div className={style.windSpeed}>
-					Wind Speed: {wind} m/s
-				</div>
-			</div>
+			<div className={style.firstCol}>
+				<div className={style.minTemp}>Min: {} &deg;C</div>
+				<div className={style.temp}>{} &deg;C</div>
+				<div className={style.maxTemp}>Max: {} &deg;C</div>
+			</div>			
+			<div className={style.secondCol}>
+				<div className={style.weekDay}>{time.weekDay}</div>
+				<div className={style.hoursMins}>{time.hoursMins}</div>
+				<div className={style.description}>{description}</div>
+				<img src={iconUrl} alt='weather icon' />
+				<div className={style.wind}>Wind: {wind} m/s</div>
+			</div>			
+			<div className={style.thirdCol}>
+				<div className={style.rain}>{rain}</div>
+				<div className={style.rf}>{feelsLike}</div>
+				<div className={style.description}>{description}</div>	
+			</div>			
 		</div>
 	)
 }

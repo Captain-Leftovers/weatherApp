@@ -1,36 +1,34 @@
 *, *::after, *::before {
-    box-sizing: border-box;
+    box-sizing:border-box;
   }
   
   :root {
     --handle-size: 3rem;
-    --img-gap: 0.25rem;
   }
   
  
   
   .container {
     display: flex;
-    justify-content: center;
-    overflow: hidden;
-    width: 100%;
+    width: 100vw;
   }
   
   .slider {
-    --items-per-screen: 4;
+    width:70%;
     display: flex;
+   --items-per-screen: 4;
     flex-grow: 1;
-    margin: 0 var(--img-gap);
     transform: translateX(calc(var(--slider-index) * -25%));
     transition: transform 250ms ease-in-out;
-    width: 90%;
+
+
   }
   
   .slider > div {
     flex: 0 0 calc(100% / var(--items-per-screen));
     max-width: calc(100% / var(--items-per-screen));
-    margin: var(--img-gap);
     border-radius: 1rem;
+    
   }
   
   .handle {
@@ -40,7 +38,6 @@
     flex-shrink: 0;
     background-color: rgba(255, 255, 255, .25);
     z-index: 10;
-    margin: var(--img-gap) 0;
     width: var(--handle-size);
     cursor: pointer;
     font-size: 5rem;
@@ -76,33 +73,7 @@
     transform: scale(1.2);
   }
   
-  .header {
-    display: flex;
-    justify-content: space-between;
-    padding: .5rem calc(var(--img-gap) * 2 + var(--handle-size));
-    align-items: center;
-  }
   
-  .title {
-    font-size: 2rem;
-    margin: 0;
-  }
-  
-  .progressBar {
-    display: flex;
-    gap: .25rem;
-  }
-  
-  .progressItem {
-    flex: 0 0 1.5rem;
-    min-width: 1.5rem;
-    height: .5rem;
-    background-color: rgba(255, 255, 255, .5);
-  }
-  
-  .progressItem.active {
-    background-color: rgba(255, 255, 255, .9);
-  }
   
   @media (max-width: 1000px) {
     .slider {

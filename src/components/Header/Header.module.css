@@ -2,7 +2,8 @@
     width: 500px;
     display: flex;
     justify-content: space-around;
-    align-items: center;    
+    align-items: center; 
+    align-self: center;   
 }
 .inputWrapper {
     /* background-color: blue; */
@@ -11,8 +12,11 @@
 input {
     width: 225px;
     border-radius: 20px;
+    text-align: center;
+    font-weight:400 ;
+    font-size: 1rem;
 }
 
 span {
-    color: red;
+    color: rgb(255, 125, 60);
 }

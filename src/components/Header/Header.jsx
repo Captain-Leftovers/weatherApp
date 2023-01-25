@@ -26,9 +26,9 @@ export default function Header({ isError, setCity, placeName }) {
 					type="text"
 					placeholder="enter city name here"
 				/>
-				<LocationSvg />
 			</div>
 			<LightDarkSvg />
 		</div>
 	)
 }
+//TODO make light dark theme or delete icon

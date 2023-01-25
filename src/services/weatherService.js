@@ -60,7 +60,10 @@ const weatherFormatter = (currentWeather, oneCall) => {
 	let time = formattedTime(currentWeather.dt, currentWeather.timezone)
 	let imageCode = currentWeather.weather[0].icon
 	let image = getImageUrl(imageCode)
-	
+	let rain = currentWeather.rain && currentWeather.rain['1h'] || 0
+
+
+
 	oneCall.daily = oneCall.daily.map((day) => {
 		let time = formattedTime(day.dt, currentWeather.timezone)
 		let temp = Object.fromEntries(Object.entries(day.temp).map(([key, value]) => {
@@ -72,7 +75,7 @@ const weatherFormatter = (currentWeather, oneCall) => {
 
 
 		let humidity = Math.round(day.humidity).toFixed()
-		let wind = Math.round(day.wind_speed).toFixed()
+		let wind = day.wind_speed
 		let description = day.weather[0].main
 		let icon = getImageUrl(day.weather[0].icon)
 		let pop = day.pop * 100
@@ -85,7 +88,7 @@ const weatherFormatter = (currentWeather, oneCall) => {
 		let temp = Math.round(hour.temp).toFixed()
 		let feelsLike = Math.round(hour.feels_like).toFixed()
 		let humidity = Math.round(hour.humidity).toFixed()
-		let wind = Math.round(hour.wind_speed).toFixed()
+		let wind = hour.wind_speed
 		let description = hour.weather[0].main
 		let icon = getImageUrl(hour.weather[0].icon)
 		let pop = (hour.pop * 100).toFixed()
@@ -104,6 +107,7 @@ const weatherFormatter = (currentWeather, oneCall) => {
 		tempMax: Math.round(currentWeather.main.temp_max).toFixed(),
 		description: currentWeather.weather[0].main,
 		image,
+		rain,
 		humidity: Math.round(currentWeather.main.humidity).toFixed(),
 		wind: Math.round(currentWeather.wind.speed).toFixed(),
 		pressure: currentWeather.main.pressure,
