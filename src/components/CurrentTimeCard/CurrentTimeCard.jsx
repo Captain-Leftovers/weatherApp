@@ -42,3 +42,4 @@ export default function CurrentTimeCard({
 		</div>
 	)
 }
+// TODO display data from figma design
