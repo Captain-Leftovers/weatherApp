@@ -13,7 +13,7 @@ function App() {
 	const [weather, errorStatus] = useFetch(city, 'current')
 		//TODO add error handling for the fetch
 
-	// 	console.log(weather);
+		console.log(weather);
 	return (
 		
 		<div className={weather || errorStatus ? style.app : style.appBlur} >

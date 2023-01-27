@@ -11,6 +11,7 @@ export default function CurrentTimeCard({
 	image = imagePlaceholder,
 	wind = 0.66,
 	rain = 0.7,
+	humidity = '66 %',
 
 }) {
 
@@ -23,9 +24,9 @@ export default function CurrentTimeCard({
 	return (
 		<div className={style.cardContainer}>
 			<div className={style.firstCol}>
-				<div className={style.minTemp}>Min: {} &deg;C</div>
-				<div className={style.temp}>{} &deg;C</div>
-				<div className={style.maxTemp}>Max: {} &deg;C</div>
+				<div className={style.minTemp}>Min: {tempMin} &deg;C</div>
+				<div className={style.temp}>{temperature} &deg;C</div>
+				<div className={style.maxTemp}>Max: {tempMax} &deg;C</div>
 			</div>			
 			<div className={style.secondCol}>
 				<div className={style.weekDay}>{time.weekDay}</div>
@@ -35,9 +36,9 @@ export default function CurrentTimeCard({
 				<div className={style.wind}>Wind: {wind} m/s</div>
 			</div>			
 			<div className={style.thirdCol}>
-				<div className={style.rain}>{rain}</div>
-				<div className={style.rf}>{feelsLike}</div>
-				<div className={style.description}>{description}</div>	
+				<div className={style.rain}>Rain: {rain} mm/h</div>
+				<div className={style.rf}>{feelsLike} &deg;C</div>
+				<div className={style.humidity}>{humidity} %</div>	
 			</div>			
 		</div>
 	)
