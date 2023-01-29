@@ -9,8 +9,8 @@ export default function CurrentTimeCard({
 	tempMax = '24',
 	description = 'Rain',
 	image = imagePlaceholder,
-	wind = 0.66,
-	rain = 0.7,
+	wind = '0.66',
+	rain = '0.7',
 	humidity = '66 %',
 
 }) {
@@ -37,8 +37,8 @@ export default function CurrentTimeCard({
 			</div>			
 			<div className={style.thirdCol}>
 				<div className={style.rain}>Rain: {rain} mm/h</div>
-				<div className={style.rf}>{feelsLike} &deg;C</div>
-				<div className={style.humidity}>{humidity} %</div>	
+				<div className={style.rf}>Feels Like: {feelsLike} &deg;C</div>
+				<div className={style.humidity}>Humidity: {humidity} %</div>	
 			</div>			
 		</div>
 	)

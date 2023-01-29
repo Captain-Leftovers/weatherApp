@@ -1,0 +1,52 @@
+.cardContainer {
+  background-color: #141414;
+  display: flex;
+  width: 50vw;
+  border-radius: 20px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0px;
+  font-size: 28px;
+   
+}
+
+.firstCol{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 33%;
+}
+
+.secondCol{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 33%;
+  
+}
+
+.thirdCol{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 33%;
+}
+.temp {
+  font-size: 56px;
+}
+
+.weekDay {
+  font-size: 56px;
+  margin-bottom: 30px;
+}
+
+.hoursMins {
+  margin-bottom: 10px;
+  
+}

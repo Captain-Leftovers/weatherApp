@@ -19,12 +19,14 @@ export default function DailyCard({daily = dummyData}) {
         return (
         <div className={style.dailyCard} key={crypto.randomUUID()} >
 			<div className={style.content}>
-				<div className={style.time}>{weekDay}</div>
-				<div className={style.something}>xxxx</div>
-				<div className={style.deg}>{deg}&deg;C</div>
-				<div className={style.rf}>(RF: {rf}&deg;)</div>
-				<div className={style.detail}>{detail}</div>
-				<div className={style.icon} style={{backgroundImage: `url(${iconUrl})`}} ></div>
+				<div className={style.weekDay}>{weekDay}</div>
+				<div>
+					<div className={style.something}>xxxx</div>
+					<div className={style.deg}>{deg}&deg;C</div>
+					<div className={style.rf}>(RF: {rf}&deg;)</div>
+					<div className={style.detail}>{detail}</div>
+					<div className={style.icon} style={{backgroundImage: `url(${iconUrl})`}} ></div>
+				</div>
 			</div>
 		</div>
 
@@ -34,9 +36,7 @@ export default function DailyCard({daily = dummyData}) {
     })
 
 	return (
-		<div className={style.cards}>
 			<Carousel data={dailyCards} />
-		</div>
 
 	)
 	
