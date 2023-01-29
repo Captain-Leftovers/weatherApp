@@ -8,7 +8,6 @@ const [sliderIndex, setSliderIndex] = useState({
 }) 
 
 
-
 const handleLeft = () => {
   if (sliderIndex['--slider-index'] > 0) {
     setSliderIndex({

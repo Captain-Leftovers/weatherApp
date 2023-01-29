@@ -10,6 +10,11 @@
    
 }
 
+.cardContainer img {
+  width: 50px;
+  height: 50px;
+}
+
 .firstCol{
   display: flex;
   flex-direction: column;
@@ -37,9 +42,6 @@
   height: 100%;
   width: 33%;
 }
-.temp {
-  font-size: 56px;
-}
 
 .weekDay {
   font-size: 56px;
@@ -50,3 +52,40 @@
   margin-bottom: 10px;
   
 }
+
+.maxTemp{
+  display:flex;
+  align-items: center;
+}
+
+
+.temp {
+  font-size: 56px;
+  display:flex;
+  align-items: center;
+}
+
+.minTemp{
+  display:flex;
+  align-items: center;
+}
+
+.wind{
+  display:flex;
+  align-items: center;
+}
+
+.rain{
+  display:flex;
+  align-items: center;
+}
+
+.rf{
+  display:flex;
+  align-items: center;
+}
+
+.humidity{
+  display:flex;
+  align-items: center;
+}   

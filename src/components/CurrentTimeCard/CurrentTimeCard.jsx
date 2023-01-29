@@ -1,5 +1,8 @@
 import style from './CurrentTimeCard.module.css'
 import imagePlaceholder  from '../../assets/10d@4x.png'
+import tempMinIcon from '../../assets/thermometer--v1.png'
+import tempUp from '../../assets/tempUp.png'
+
 
 export default function CurrentTimeCard({
 	time = {weekDay: 'Monday', hoursMins: '12:00'},
@@ -24,21 +27,28 @@ export default function CurrentTimeCard({
 	return (
 		<div className={style.cardContainer}>
 			<div className={style.firstCol}>
-				<div className={style.minTemp}>Min: {tempMin} &deg;C</div>
-				<div className={style.temp}>{temperature} &deg;C</div>
-				<div className={style.maxTemp}>Max: {tempMax} &deg;C</div>
+				<div className={style.minTemp}>
+				<img src={tempMinIcon} alt='minTemp' />
+					 {tempMin} &deg;C</div>
+				<div className={style.temp}>
+					<img src={tempMinIcon} alt='minTemp' />
+					{temperature} &deg;C
+					</div>
+				<div className={style.maxTemp}>
+				<img src={tempUp} alt='minTemp' />
+					 {tempMax} &deg;C</div>
 			</div>			
 			<div className={style.secondCol}>
 				<div className={style.weekDay}>{time.weekDay}</div>
 				<div className={style.hoursMins}>{time.hoursMins}</div>
 				<div className={style.description}>{description}</div>
 				<img src={iconUrl} alt='weather icon' />
-				<div className={style.wind}>Wind: {wind} m/s</div>
+				<div className={style.wind}><img src={tempMinIcon} alt='minTemp' /> {wind} m/s</div>
 			</div>			
 			<div className={style.thirdCol}>
-				<div className={style.rain}>Rain: {rain} mm/h</div>
-				<div className={style.rf}>Feels Like: {feelsLike} &deg;C</div>
-				<div className={style.humidity}>Humidity: {humidity} %</div>	
+				<div className={style.rain}><img src={tempMinIcon} alt='minTemp' /> {rain} mm/h</div>
+				<div className={style.rf}><img src={tempMinIcon} alt='minTemp' /> {feelsLike} &deg;C</div>
+				<div className={style.humidity}><img src={tempMinIcon} alt='minTemp' /> {humidity} %</div>	
 			</div>			
 		</div>
 	)
