@@ -1,8 +1,12 @@
 import style from './CurrentTimeCard.module.css'
 import imagePlaceholder  from '../../assets/10d@4x.png'
-import tempMinIcon from '../../assets/thermometer--v1.png'
-import tempUp from '../../assets/tempUp.png'
-
+import vialUpSVG from '../../assets/vialUp.svg'
+import vialDownSVG from '../../assets/vialDown.svg'
+import vialSVG from '../../assets/vial.svg'
+import rainSVG from '../../assets/rain.svg'
+import windSVG from '../../assets/wind.svg'
+import humiditySVG from '../../assets/humidity.svg'
+import rainHourSVG from '../../assets/rainHour.svg'
 
 export default function CurrentTimeCard({
 	time = {weekDay: 'Monday', hoursMins: '12:00'},
@@ -28,27 +32,27 @@ export default function CurrentTimeCard({
 		<div className={style.cardContainer}>
 			<div className={style.firstCol}>
 				<div className={style.minTemp}>
-				<img src={tempMinIcon} alt='minTemp' />
-					 {tempMin} &deg;C</div>
+				<img  src={vialUpSVG} alt='maxTemp' />
+					 {tempMax} &deg;C</div>
 				<div className={style.temp}>
-					<img src={tempMinIcon} alt='minTemp' />
+					<img src={vialSVG}  alt='temp' />
 					{temperature} &deg;C
 					</div>
 				<div className={style.maxTemp}>
-				<img src={tempUp} alt='minTemp' />
-					 {tempMax} &deg;C</div>
+				<img src={vialDownSVG} alt='minTemp' />
+					 {tempMin} &deg;C</div>
 			</div>			
 			<div className={style.secondCol}>
 				<div className={style.weekDay}>{time.weekDay}</div>
 				<div className={style.hoursMins}>{time.hoursMins}</div>
 				<div className={style.description}>{description}</div>
 				<img src={iconUrl} alt='weather icon' />
-				<div className={style.wind}><img src={tempMinIcon} alt='minTemp' /> {wind} m/s</div>
+				<div className={style.wind}><img src={windSVG}  alt='wind' /> {wind} m/s</div>
 			</div>			
 			<div className={style.thirdCol}>
-				<div className={style.rain}><img src={tempMinIcon} alt='minTemp' /> {rain} mm/h</div>
-				<div className={style.rf}><img src={tempMinIcon} alt='minTemp' /> {feelsLike} &deg;C</div>
-				<div className={style.humidity}><img src={tempMinIcon} alt='minTemp' /> {humidity} %</div>	
+				<div className={style.rain}><img src={rainHourSVG}  alt='rainH' /> {rain} mm/h</div>
+				<div className={style.rf}><img  alt='feelsLike' /> {feelsLike} &deg;C</div>
+				<div className={style.humidity}><img src={humiditySVG}  alt='humidity' />        {humidity} %</div>	
 			</div>			
 		</div>
 	)
