@@ -16,6 +16,8 @@
   height: 3rem;
 }
 
+/* TODO adjust svg size */
+
 .firstCol{
   display: flex;
   flex-direction: column;
