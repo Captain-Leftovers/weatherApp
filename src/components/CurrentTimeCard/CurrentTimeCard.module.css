@@ -1,18 +1,19 @@
 .cardContainer {
   background-color: #141414;
   display: flex;
-  width: 50vw;
+  width: 70vw;
+  height: 35vh;
   border-radius: 20px;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0px;
-  font-size: 28px;
+  padding: 10px 0px;
+  font-size: 1.5rem;
    
 }
 
 .cardContainer img {
-  width: 50px;
-  height: 50px;
+  width: 3rem;
+  height: 3rem;
 }
 
 .firstCol{
@@ -44,12 +45,11 @@
 }
 
 .weekDay {
-  font-size: 56px;
-  margin-bottom: 30px;
+  font-size: 3rem;
+  margin-bottom: 5px;
 }
 
 .hoursMins {
-  margin-bottom: 10px;
   
 }
 
@@ -60,7 +60,7 @@
 
 
 .temp {
-  font-size: 56px;
+  font-size: 5rem;
   display:flex;
   align-items: center;
 }
@@ -83,6 +83,7 @@
 .rf{
   display:flex;
   align-items: center;
+  font-size: 5rem;
 }
 
 .humidity{
