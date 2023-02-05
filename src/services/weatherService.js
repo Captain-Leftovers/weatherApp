@@ -78,7 +78,7 @@ const weatherFormatter = (currentWeather, oneCall) => {
 		let wind = day.wind_speed
 		let description = day.weather[0].main
 		let icon = getImageUrl(day.weather[0].icon)
-		let pop = day.pop * 100
+		let pop = (day.pop * 100).toFixed()
 		let rain = day.rain || 0
 		return {time, temp, feelsLike, humidity, wind, description, icon, pop, rain}
 	}).slice(1)

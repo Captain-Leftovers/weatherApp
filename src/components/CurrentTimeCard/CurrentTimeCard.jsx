@@ -7,6 +7,7 @@ import rainSVG from '../../assets/rain.svg'
 import windSVG from '../../assets/wind.svg'
 import humiditySVG from '../../assets/humidity.svg'
 import rainHourSVG from '../../assets/rainHour.svg'
+import feelsLikeSVG from '../../assets/FeelsLike.svg'
 
 export default function CurrentTimeCard({
 	time = {weekDay: 'Monday', hoursMins: '12:00'},
@@ -51,7 +52,7 @@ export default function CurrentTimeCard({
 			</div>			
 			<div className={style.thirdCol}>
 				<div className={style.rain}><img src={rainHourSVG}  alt='rainH' /> {rain} mm/h</div>
-				<div className={style.rf}><img  alt='feelsLike' /> {feelsLike} &deg;C</div>
+				<div className={style.rf}><img src={feelsLikeSVG}  alt='feelsLike' /> {feelsLike} &deg;C</div>
 				<div className={style.humidity}><img src={humiditySVG}  alt='humidity' />        {humidity} %</div>	
 			</div>			
 		</div>

@@ -11,7 +11,6 @@ import useFetch from './hooks/useFetch.js'
 function App() {
 	const [city, setCity] = useState('Sydney')
 	const [weather, errorStatus] = useFetch(city, 'current')
-		//TODO add error handling for the fetch
 
 		console.log(weather);
 	return (
