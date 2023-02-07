@@ -1,5 +1,3 @@
-import LightDarkSvg from './assets/LightDarkSvg'
-import LocationSvg from './assets/LocationSvg'
 import style from './Header.module.css'
 
 
@@ -16,19 +14,23 @@ export default function Header({ isError, setCity, placeName }) {
 		}
 	}
 	return (
+
+		
 		<div className={style.headerContainer}>
-			<div className="locationWrap">
-				<p className="locationText">{placeName || notFoundPlace}<span>{isError ? ` ${isError}`:''}</span></p>
+				
+				
+				<div className={style.wrapper}>
+				<p className={style.locationText}>{placeName || notFoundPlace}<span>{isError ? ` ${isError}`:''}</span></p>
+					<input
+						onKeyDown={inputHandler}
+						type="text"
+						placeholder="enter city name here"
+						/>
+
+						<div></div>
+				</div>
 			</div>
-			<div className={style.inputWrapper}>
-				<input
-					onKeyDown={inputHandler}
-					type="text"
-					placeholder="enter city name here"
-				/>
-			</div>
-			<LightDarkSvg />
-		</div>
+	
 	)
 }
 //TODO make light dark theme or delete icon

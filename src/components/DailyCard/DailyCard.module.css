@@ -3,9 +3,14 @@
     padding: 4px;
 }
 
-.dailyCard img {
+img {
         width: 2rem;
         height: 2rem;
+}
+
+.weatherIcon{
+    width: 4rem;
+    height: 4rem;
 }
 
 .content {
@@ -20,5 +25,22 @@
    
 }
 
+.temp, .feelsLike{
+    font-size: 1.5rem;
+}
 
 
+.firstCol, .secondCol, .thirdCol{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 33%;
+   
+}
+
+.maxTemp, .minTemp, .feelsLike, .humidity, .wind, .temp, .pop{
+    display: flex;
+    align-items: center;
+}

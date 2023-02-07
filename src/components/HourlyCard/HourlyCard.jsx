@@ -24,6 +24,10 @@ let hourlyCards = hourly?.map((hour) => {
     let rf = hour?.feelsLike || '0'
     let detail = hour?.description || 'Rainy'
     let icon = hour?.icon || '01d'
+    let wind = hour?.wind || '0'
+    let humidity = hour?.humidity || '0'
+    let pop = hour?.pop || '0'
+    let rain = hour?.rain || '0'
     let iconUrl = icon || imagePlaceholder;
         return  (
 
@@ -33,13 +37,13 @@ let hourlyCards = hourly?.map((hour) => {
                 <div className={style.firstCol}>
                     <div className={style.temp}>
                         <img src={vialSVG} alt="temp" />
-                        <span>{deg} &deg;C</span>
+                        {deg} &deg;C
                     </div>
                 </div>
                 <div className={style.secondCol}>
                     <div className={style.time}>
-                        <p>{time}</p>
-                        <p>{day}</p>
+                        <p className={style.timeP}>{time}</p>
+                        <p className={style.dayP}>{day}</p>.
                     </div>
                     <div className={style.detail}>
                         {detail}
@@ -49,7 +53,7 @@ let hourlyCards = hourly?.map((hour) => {
                 <div className={style.thirdCol}>
                     <div className={style.feelsLike}>
                         <img src={feelsLikeSVG} alt="" />
-                        <span>{rf} &deg;C</span>
+                        {rf} &deg;C
                     </div>
                 </div>
             </div>

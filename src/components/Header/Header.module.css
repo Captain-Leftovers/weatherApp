@@ -1,16 +1,12 @@
 .headerContainer{
-    width: 500px;
     display: flex;
-    justify-content: space-around;
-    align-items: center; 
-    align-self: center;   
+    border-radius: 20px;
+    width: 60%;
+    justify-content:center
 }
-.inputWrapper {
-    /* background-color: blue; */
-    display: flex;
-}
+
 input {
-    width: 225px;
+    max-width: 225px;
     border-radius: 20px;
     text-align: center;
     font-weight:400 ;
@@ -19,4 +15,16 @@ input {
 
 span {
     color: rgb(255, 125, 60);
+}
+.wrapper{
+    display:flex;
+    justify-content: center;
+    width: 80%;
+    position: relative;
+}
+
+.locationText{
+    position: absolute;
+    left: 10%;
+    bottom: -70%;
 }

@@ -11,12 +11,16 @@
    
 }
 
-.cardContainer img {
+img {
   width: 3rem;
   height: 3rem;
 }
 
-/* TODO adjust svg size */
+.weatherIcon{
+  width: 6rem;
+  height: 6rem;
+}
+
 
 .firstCol{
   display: flex;
@@ -51,9 +55,7 @@
   margin-bottom: 5px;
 }
 
-.hoursMins {
-  
-}
+
 
 .maxTemp{
   display:flex;

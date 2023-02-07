@@ -34,26 +34,26 @@ export default function CurrentTimeCard({
 			<div className={style.firstCol}>
 				<div className={style.minTemp}>
 				<img  src={vialUpSVG} alt='maxTemp' />
-					 {tempMax} &deg;C</div>
+					 <span>{tempMax} &deg;C</span></div>
 				<div className={style.temp}>
 					<img src={vialSVG}  alt='temp' />
 					{temperature} &deg;C
 					</div>
 				<div className={style.maxTemp}>
 				<img src={vialDownSVG} alt='minTemp' />
-					 {tempMin} &deg;C</div>
+					 <span>{tempMin} &deg;C</span></div>
 			</div>			
 			<div className={style.secondCol}>
 				<div className={style.weekDay}>{time.weekDay}</div>
 				<div className={style.hoursMins}>{time.hoursMins}</div>
 				<div className={style.description}>{description}</div>
-				<img src={iconUrl} alt='weather icon' />
-				<div className={style.wind}><img src={windSVG}  alt='wind' /> {wind} m/s</div>
+				<img src={iconUrl} alt='weather icon' className={style.weatherIcon}/>
+				<div className={style.wind}><img src={windSVG}  alt='wind' /> <span>{wind} m/s</span></div>
 			</div>			
 			<div className={style.thirdCol}>
-				<div className={style.rain}><img src={rainHourSVG}  alt='rainH' /> {rain} mm/h</div>
+				<div className={style.rain}><img src={rainHourSVG}  alt='rainH' /> <span>{rain} mm/h</span></div>
 				<div className={style.rf}><img src={feelsLikeSVG}  alt='feelsLike' /> {feelsLike} &deg;C</div>
-				<div className={style.humidity}><img src={humiditySVG}  alt='humidity' />        {humidity} %</div>	
+				<div className={style.humidity}><img src={humiditySVG}  alt='humidity' />        <span>{humidity} %</span></div>	
 			</div>			
 		</div>
 	)

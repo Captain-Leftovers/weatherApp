@@ -36,7 +36,7 @@ export default function DailyCard({daily = dummyData}) {
 					</div>
 					<div className={style.temp}>
 						<img  src={vialSVG} alt='Temp' />
-						<span>{temp} &deg;C</span>
+						{temp} &deg;C
 					</div>
 					<div className={style.minTemp}>
 						<img  src={vialDownSVG} alt='minTemp' />
@@ -63,7 +63,7 @@ export default function DailyCard({daily = dummyData}) {
 					</div>
 					<div className={style.feelsLike}>
 						<img src={feelsLikeSVG} alt="FeelsLike" />
-						<span>{rf} &deg;C</span>
+						{rf} &deg;C
 					</div>
 					<div className={style.humidity}>
 						<img src={humiditySVG} alt="Humidity" />
